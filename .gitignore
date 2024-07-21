@@ -45,3 +45,4 @@
 **/.vs/*
 **/inter/*
 Profile/profile_sys/bin/*
+Profile/tools/__pycache__/*
