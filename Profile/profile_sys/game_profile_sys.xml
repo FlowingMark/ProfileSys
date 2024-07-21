@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+    <wpr>
+        <open_wpr>0</open_wpr>
+        <start>/c C:/wprTT.exe.lnk -start GeneralProfile.verbose -start CPU.verbose -start DiskIO.verbose -start FileIO.verbose</start>
+        <marker>/c C:/wprTT.exe.lnk -marker </marker>
+        <!-- 最快几秒记录一个mark -->
+        <marker_min_interval>2</marker_min_interval>
+        <!-- 帧执行时间最低多少时记录mark  单位：us -->
+        <marker_frame_time>50000</marker_frame_time>
+        <stop>/k C:/wprTT.exe.lnk -stop G:/profile_inner/</stop>
+
+        <!-- 帧函数id CGameProFile(-1)-->
+        <marker_frame_id>-1</marker_frame_id>
+        <!-- 函数执行时间>marker_record_frame_time才会记录 单位：us-->
+        <marker_record_frame_time>-1</marker_record_frame_time>
+        <!-- 日志最终输出到的目录,日志名字：ProfileTest*.log-->
+        <log_file_dir>./</log_file_dir>
+    </wpr>
+</root>

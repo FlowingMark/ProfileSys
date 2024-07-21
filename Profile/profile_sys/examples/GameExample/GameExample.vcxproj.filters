@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\GameInstance\CGameInstance.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameInput\CGameInput.cpp">
+      <Filter>src\GameInput</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameLogic\CGameLogic.cpp">
+      <Filter>src\GaneLogic</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameRender\CGameRender.cpp">
+      <Filter>src\GameRender</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\GameInstance\CGameInstance.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameInput\CGameInput.h">
+      <Filter>src\GameInput</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameLogic\CGameLogic.h">
+      <Filter>src\GaneLogic</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameRender\CGameRender.h">
+      <Filter>src\GameRender</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{fe184a9b-fa08-4abb-89ab-d531dd2dd79a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameInput">
+      <UniqueIdentifier>{19ffaf42-f316-4e73-a4f2-87fe1f516494}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GaneLogic">
+      <UniqueIdentifier>{0f3020ec-3e57-4c80-a81a-dd12b127459e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameRender">
+      <UniqueIdentifier>{1aa3d351-0a6d-4567-ad14-a7a31920c78e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
