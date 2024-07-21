@@ -51,18 +51,6 @@ def processDir(dir, fun_map, out_dict):
             processLog(full_path_file.__str__(), in_func_map=out_dict)
 
 
-#out_dict = dict();
-#findAllFuncIdMap(r"D:\CodeBank\note-1\工作笔记\对局卡顿\tools\codeInsert\logs2",out_dict)
-
-#单个文件处理
-#file_str = r"G:\profile007\ProfileTest1718881305.log";
-#processLog(file_str=file_str, in_func_map=out_dict)
-
-#文件夹内所有文件处理
-#log_dir = r"G:\profile007\profile2\p33"
-#log_dir = r"G:\profile007\profile2\p33\p33"
-#processDir(log_dir, fun_map=out_dict)
-
 def processOneLog(file, func_dict_path):
     out_dict = dict();
     findAllFuncIdMap(func_dict_path, out_dict)
