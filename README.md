@@ -50,6 +50,8 @@
     - **file** is "profileTest*func.log"
     - **start**: file line num you want your graph start
     - **end** : file line num you want your graph end 
+  - GameExample Graph like this:
+  - ![图片alt](.\Profile\profile_sys\examples\GameExample\newplot.png "图片title")
 - More
   - Frame Helper
     - if your Game **mainloop** has a "CGameProFile(-1)" code
