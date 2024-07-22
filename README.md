@@ -2,22 +2,22 @@
  Profile Your CPP Code with Insert Marks
 
 # How TO?
-- generate **profile_sys.dll**
-  - build profile_sys.sln
-  - copy profile_sys.dll to your *.exe dir
-- copy headers into your project include dir
+- 生成 **profile_sys.dll**
+  - 编译 profile_sys.sln
+  - 复制 profile_sys.dll 到你 *.exe 目录
+- 复制dll相关头文件到你的工程
   - [dllheader](./Profile/profile_sys/include/game_profile_sys.h)
   - [helperheader](./Profile/profile_sys/include/game_profile_sys_helper.h)
-- Change Script [codeInsert.py](./Profile/tools/codeInsert.py)
-  - change func **insertGameExample()**
-    - **include_str** : your include dir 
-    - **insertPath(code_dir)** : code dir you need add marks.
-      - you can add more dirs if you want: add lines insertPath(code_dir2); insertPath(code_dir3)...
+- 修改脚本 [codeInsert.py](./Profile/tools/codeInsert.py)
+  - 修改函数实现 **insertGameExample()**
+    - **include_str** : 这里是 helperheader 所复制到的目录，确保你的代码能找到
+    - **insertPath(code_dir)** : 需要加分析节点的代码所在目录
+      - 如果你代码目录有很多个，添加代码：insertPath(code_dir2); insertPath(code_dir3)...
     - **saveFuncDic(out_dict_dir)**
-      -  which dir to save "fuct_dict*.log"
- -  Then Run Script [codeInsert.py](./Profile/tools/codeInsert.py)
-    -  you got a "fuct_dict*.log" file in the **out_dict_dir**, later we will use it
- -  add **Start** And **End** in your project
+      -  保存"fuct_dict*.log"的目录，需要确保目录存在。这个目录后续还会用到
+ -  运行脚本 [codeInsert.py](./Profile/tools/codeInsert.py)
+    -  将out_dict_dir目录中出现一个 "fuct_dict*.log" 文件
+ -  在你的工程中添加开始 **Start** 和结束 **End** 代码
     -  Start Code like this:
     ```
     if (g_profile_sys)
@@ -32,29 +32,29 @@
       g_profile_sys->dump2File(time(nullptr));
     }
     ```
- -  Build your project
- -  Change the [config](./Profile/profile_sys/game_profile_sys.xml), And Copy to your *.exe dir
-    -  open_wpr: 1 will use wpr.exe to recrod etw events. 0 not use wpr
-    -  marker_frame_id: must be -1, And if your Game **mainloop** has a "CGameProFile(-1)" code ,later tools will help you generate a "frame treemap"
-    -  marker_record_frame_time: if functions cost time bigger than this value, fucntion will record , else no record
-    -  log_file_dir: dir for log "profileTest*.log" , we will use the "profileTest*.log" later
- -  Run your Code
-    - when End Code executed! We will get a "profileTest*.log" 
-- Run Script [addFuncName.py](./Profile/tools/addFuncName.py)
-  - call func **processOneLog(profileLog, DictDir)**
+ -  编译生成你的工程
+ -  修改配置文件 [config](./Profile/profile_sys/game_profile_sys.xml), 然后复制到你的 *.exe目录
+    -  open_wpr: 1 会在start时运行cmd命令使用 wpr.exe记录etw events. 0 不使用wpr
+    -  marker_frame_id: 必须是-1,如果你的工程的主循环 **mainloop** 添加了 "CGameProFile(-1)" ,后面analysisWithUI.py会帮助你生成单帧的图
+    -  marker_record_frame_time: 函数消耗时间大于此值，将记录，否则不记录
+    -  log_file_dir: 结束代码**End**执行时会在此目录生成 "profileTest*.log"文件 , 后续我们会用到"profileTest*.log" 文件
+ -  运行你的exe
+    - 当结束**End**执行后，将获得一个 "profileTest*.log" 文件
+- 执行脚本 [addFuncName.py](./Profile/tools/addFuncName.py)
+  - 执行函数 **processOneLog(profileLog, DictDir)**
     - **profileLog** is "profileTest*.log"
-    - **DictDir** is dir where "fuct_dict*.log" in
-  - now we got "profileTest*func.log"
-- Generate a graph, Run Script [treePlot.py](./Profile/tools/treePlot.py)
+    - **DictDir** 是 "fuct_dict*.log" 所在目录
+  - 执行完毕，会获得一个"profileTest*func.log" 文件
+- 生成图, 执行脚本 [treePlot.py](./Profile/tools/treePlot.py)
   - func "main(file , start , end)"
     - **file** is "profileTest*func.log"
-    - **start**: file line num you want your graph start
-    - **end** : file line num you want your graph end 
-  - GameExample Graph like this:
-  - ![Img](./Profile/profile_sys/examples/GameExample/newplot.png "1")
-- More
-  - Frame Helper
-    - if your Game **mainloop** has a "CGameProFile(-1)" code
-    - [analysisWithUI.py](./Profile/tools/analysisWithUI.py) has a simple ui help you. 
-      - frame is filter by 15000us
-        - you can change it! code is here: resultAna.processOneFile(or_file, fileName1, 15000)
+    - **start**: 你想要的图开始的文件行号
+    - **end** : 你想要的图结束的文件行号
+    - GameExample 生成图示例:
+      - ![Img](./Profile/profile_sys/examples/GameExample/newplot.png "1")
+- 更多
+  - 一个简单的UI界面
+    - 如果你代码主循环函数 **mainloop**中有 "CGameProFile(-1)" 代码
+    - 脚本[analysisWithUI.py](./Profile/tools/analysisWithUI.py) 会有个简单的界面供你使用
+      - frame 过滤了单帧时间 15000us
+        - 如果你要修改，修改此处代码 ：resultAna.processOneFile(or_file, fileName1, 15000)
