@@ -51,7 +51,14 @@
     - **start**: 你想要的图开始的文件行号
     - **end** : 你想要的图结束的文件行号
     - GameExample 生成图示例:
-      - ![Img](./Profile/profile_sys/examples/GameExample/newplot.png "1")
+    ![Img](./Profile/profile_sys/examples/GameExample/newplot.png "1")
+      - 说明：
+        - 91_Frame_3435552
+          - 91: 函数对应行号，越小执行越早
+          - Frame: 函数名字，期待你的函数像这样 "void classA::Function(...)"
+            - 可以在fuct_dict*.log看到所有的函数名，你可以修改它，或者添加一个"id对应函数"
+            - 文件profileTest*func.log每一个行最后是函数名，这个是从"fuct_dict*.log"查找的，如果你的图中函数显示不正确，可以去"profileTest*func.log"找具体的行查看
+            - 3435552：是函数消耗的时间
 - 更多
   - 一个简单的UI界面
     - 如果你代码主循环函数 **mainloop**中有 "CGameProFile(-1)" 代码
