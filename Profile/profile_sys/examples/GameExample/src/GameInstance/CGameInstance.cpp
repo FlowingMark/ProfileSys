@@ -2,6 +2,7 @@
 #include "../GameInput/CGameInput.h"
 #include "../GameLogic/CGameLogic.h"
 #include "../GameRender/CGameRender.h"
+#include "../../../../include/game_profile_sys_helper.h"
 
 
 CGameInstance::CGameInstance()
@@ -20,7 +21,7 @@ void CGameInstance::InitGame()
 }
 
 bool CGameInstance::RunFrame()
-{
+{CGameProFile(-1)
 	m_GameInput->HandleKey();
 	if (m_GameInput->GameOver())
 		return true;
