@@ -58,3 +58,5 @@
     - [analysisWithUI.py](./Profile/tools/analysisWithUI.py) has a simple ui help you. 
       - frame is filter by 15000us
         - you can change it! code is here: resultAna.processOneFile(or_file, fileName1, 15000)
+    - Firt Try
+      - You can use [GameExample](./Profile/profile_sys/examples/GameExample/GameExample.sln) to do your first try

@@ -58,3 +58,5 @@
     - 脚本[analysisWithUI.py](./Profile/tools/analysisWithUI.py) 会有个简单的界面供你使用
       - frame 过滤了单帧时间 15000us
         - 如果你要修改，修改此处代码 ：resultAna.processOneFile(or_file, fileName1, 15000)
+  - 第一次尝试
+    - 你可以使用 [GameExample](./Profile/profile_sys/examples/GameExample/GameExample.sln)进行第一次尝试
