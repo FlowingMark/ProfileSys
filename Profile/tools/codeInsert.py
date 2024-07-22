@@ -112,7 +112,7 @@ def insertGameExample():
     global include_str;
     func_id = 1
     include_str = "#include \"../../../../include/game_profile_sys_helper.h\"\n"
-    insertPath(r"D:\CodeBank\note\Tools\Profile\profile_sys\examples\GameExample\src")
-    saveFuncDic(r"D:\CodeBank\note\Tools\Profile\profile_sys\bin")
+    insertPath(r"D:\CodeBank\GitHub\ProfileSys\Profile\profile_sys\examples\GameExample\src")
+    saveFuncDic(r"D:\CodeBank\GitHub\ProfileSys\Profile\profile_sys\bin")
 
 insertGameExample()
