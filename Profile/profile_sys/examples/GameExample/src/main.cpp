@@ -7,8 +7,8 @@ int main()
 	CGameInstance GameInstance;
 	GameInstance.InitGame();
 	std::cout << "press \"ESC\" to exit !!" << std::endl;
-	std::cout << "press \"S\" start record!!" << std::endl;
-	std::cout << "press \"D\" end record!!" << std::endl;
+	std::cout << "press \"s\" start record!!" << std::endl;
+	std::cout << "press \"d\" end record!!" << std::endl;
 
 	//game frame
 	bool exit(false);
