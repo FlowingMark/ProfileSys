@@ -22,6 +22,10 @@ void CGameInput::HandleKey()
 		{
 			std::cout << "game over!!" << std::endl;
 			m_GameOver = true;
+			if (g_profile_sys)
+			{
+				g_profile_sys->dump2File(time(nullptr));
+			}
 		}
 		else if (ch == 115)// s == 115
 		{
