@@ -20,7 +20,8 @@ public:
 	};
 	void addCallProfile(const int id, const int time, const int start_index)
 	{
-		++m_frame_call_times;
+		if (m_working)
+			++m_frame_call_times;
 		if (m_working && time > m_wpr_cfg.marker_record_frame_time)
 		{
 			if (id == m_wpr_cfg.marker_frame_id)
