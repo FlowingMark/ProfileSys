@@ -34,7 +34,7 @@ public:
 			{
 				//m_wpr_cfg.marker_min_interval second add one mark
 				auto now = std::chrono::system_clock::now();
-				std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::seconds>(now - m_mark_last);
+				std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(now - m_mark_last);
 				if (duration.count() > m_wpr_cfg.marker_min_interval)
 				{
 					m_mark_last = now;
