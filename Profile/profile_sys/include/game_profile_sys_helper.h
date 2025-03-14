@@ -16,7 +16,7 @@ public:
 		if (g_profile_sys)
 		{
 			m_func_index = func_id;
-			m_start = std::chrono::system_clock::now();
+			m_start = std::chrono::steady_clock::now();
 			m_start_index = g_profile_sys->getCurIndex();
 		}
 	}
@@ -24,7 +24,7 @@ public:
 	{
 		if (g_profile_sys)
 		{
-			auto end = std::chrono::system_clock::now();
+			auto end = std::chrono::steady_clock::now();
 			std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(end - m_start);
 			g_profile_sys->addCallProfile(m_func_index, int(duration.count()), m_start_index);
 		}
@@ -49,7 +49,7 @@ public:
 	}
 
 protected:
-	std::chrono::system_clock::time_point m_start;
+	std::chrono::steady_clock::time_point m_start;
 	int m_func_index = 0;
 	int m_start_index = 0;
 };

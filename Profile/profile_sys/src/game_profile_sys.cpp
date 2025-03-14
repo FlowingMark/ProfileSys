@@ -33,7 +33,7 @@ public:
 			if (m_wpr_cfg.open && time > m_wpr_cfg.marker_frame_time && id == m_wpr_cfg.marker_frame_id)
 			{
 				//m_wpr_cfg.marker_min_interval second add one mark
-				auto now = std::chrono::system_clock::now();
+				auto now = std::chrono::steady_clock::now();
 				std::chrono::microseconds duration = std::chrono::duration_cast<std::chrono::microseconds>(now - m_mark_last);
 				if (duration.count() > m_wpr_cfg.marker_min_interval)
 				{
@@ -124,7 +124,7 @@ protected:
 	}
 
 	std::vector<std::pair<int, TimeInfo>> m_profile_call_infos;
-	std::chrono::system_clock::time_point m_mark_last;
+	std::chrono::steady_clock::time_point m_mark_last;
 
 	struct wprCfg
 	{
